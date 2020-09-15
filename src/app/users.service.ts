@@ -29,6 +29,10 @@ export class UsersService {
     this.url = `${l.protocol}//${host}/api/users/`;
   }
 
+  createUser(user: User): Observable<User>{
+    return this.http.post<User>(this.url, user, httpOptions);
+  }
+
   getUsers(): Observable<User>{
     return this.http.get<User>(this.url, httpOptions);
   }
