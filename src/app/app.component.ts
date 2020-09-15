@@ -27,6 +27,11 @@ export class AppComponent implements OnInit {
       url: '/register',
       icon: 'person-add'
     },
+    {
+      title: 'Users',
+      url: '/users',
+      icon: 'people'
+    }
   ];
   public labels = ['Login', 'Logout', 'Register', 'User', 'Users'];
 

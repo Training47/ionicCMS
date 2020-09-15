@@ -7,12 +7,12 @@
 
   <ion-content>
     <ion-item *ngIf="!users">
-      <ion-label text-center>
+      <ion-label ion-text-center>
         <ion-spinner></ion-spinner>
       </ion-label>
     </ion-item>
   
-  </ion-content>
+  
     <ion-list *ngIf="users">
       <ion-item *ngFor="let user of users" [routerLink]="['/user', user._id]">
         <ion-label>{{ user.username }}</ion-label>

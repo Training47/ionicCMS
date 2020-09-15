@@ -24,9 +24,14 @@ const routes: Routes = [
     loadChildren: () => import('./users/users.module').then( m => m.UsersPageModule)
   },
   {
-    path: 'user',
+    path: 'user/:userId',
     loadChildren: () => import('./user/user.module').then( m => m.UserPageModule)
-  }
+  },
+  {
+    path: 'user-edit/:userId',
+    loadChildren: () => import('./user-edit/user-edit.module').then( m => m.UserEditPageModule)
+  },
+  
 ];
 
 @NgModule({
