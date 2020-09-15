@@ -35,12 +35,12 @@ export class AppComponent implements OnInit {
     {
       title: 'Articles',
       url: '/articles',
-      icon: 'person-add'
+      icon: 'newitem-add'
     }
 
-
   ];
-  public labels = ['Login', 'Logout', 'Register', 'User', 'Users', 'Article', 'Articles'];
+
+  public labels = ['Login', 'Logout', 'Register', 'User', 'Users', 'Article'];
 
   constructor(
     private platform: Platform,
