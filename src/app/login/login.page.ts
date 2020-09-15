@@ -11,6 +11,7 @@ import { User } from '../user.model';
 export class LoginPage implements OnInit {
 
   user:User = new User();
+  errorMessage: string;
 
   constructor(
     private authService: AuthService
@@ -18,10 +19,18 @@ export class LoginPage implements OnInit {
 
   ngOnInit() {}
 
+  response(response): void{
+    if(response.success===false){
+      this.errorMessage = 'Invalid Credentials';
+    }
+
+    console.log(response);
+  }
+
   public onSubmit():void {
     this.authService.logIn(this.user).subscribe(
       (response:any) => {
-       console.log(response);
+       this.response (response);
       }
     );
 
