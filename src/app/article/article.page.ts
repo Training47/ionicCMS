@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { ArticlesService } from '../articles.service';
 import { Article } from '../article.model';
@@ -12,13 +12,13 @@ import { Article } from '../article.model';
 })
 export class ArticlePage implements OnInit {
 
-article:Article;
+article: Article;
 
 constructor(
   private activatedRoute: ActivatedRoute,
   private articlesService: ArticlesService,
   private router: Router
-  ) {}
+  ) { }
 
 ngOnInit() {
   this.activatedRoute.params.subscribe(params=>{
@@ -36,6 +36,14 @@ getArticle(id:string):void {
 
 }
 
-}
+// deleteArticle(id:string): void {
+//   if (confirm("Are you sure to delete " + this.article.title)) {
+//     this.articlesService.deleteArticle(id).subscribe(
+//       () => { this.router.navigate(['/articles']) }
+//     ):
+  }
+// }
+
+// }
 
 

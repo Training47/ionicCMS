@@ -1,5 +1,8 @@
 <ion-header>
-  <ion-toolbar>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-back-button></ion-back-button>
+        </ion-buttons>
     <ion-title>article</ion-title>
   </ion-toolbar>
 </ion-header>
@@ -12,12 +15,43 @@
       </ion-label>
     </ion-item>
   
-  
-    <ion-list *ngIf="articles">
-      <ion-item *ngFor="let article of articles" [routerLink]="['/article', article._id]">
-        <ion-label>{{ article.title }}</ion-label>
-      </ion-item>
-    </ion-list>
+
+<ion-card *ngIf="article">
+
+
+<ion-card-header>
+  <ion-card-title>{{ article.title }}</ion-card-title>
+</ion-card-header>
+
+<ion-list>
+  <ion-item>{{ article.description }}</ion-item>
+  <ion-item>{{ article.keywords }}</ion-item>
+  <ion-item>{{ article.body }}</ion-item>
+  <ion-item>{{ article.published }}</ion-item>
+</ion-list>
+
+</ion-card>
+
+<ion-fab vertical="bottom" horizontal="end">
+  <ion-fab-button color="secondary">
+    <ion-icon name="arrow-dropleft"></ion-icon>
+  </ion-fab-button>
+
+<ion-fab-list side="start" *ngIf="article">
+
+  <ion-fab-button color="light" [routerLink]="['/article-edit', article._id]">
+  <ion-icon name="create"></ion-icon>
+  </ion-fab-button>
+
+<ion-fab-button color="danger" (click)="deleteArticle(article._id">
+  <ion-icon name="trash"></ion-icon>
+</ion-fab-button>
+
+
+</ion-fab-list>
+
+</ion-fab>
+
   
   </ion-content> 
 
