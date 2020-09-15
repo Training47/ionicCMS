@@ -33,8 +33,8 @@ export class AppComponent implements OnInit {
       icon: 'people'
     },
     {
-      title: 'Articles',
-      url: '/articles',
+      title: 'Article',
+      url: '/article',
       icon: 'newitem-add'
     }
 

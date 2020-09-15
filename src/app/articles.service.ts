@@ -34,4 +34,12 @@ export class ArticlesService {
     return this.http.get<Article>(this.url, httpOptions);
   }
 
+  getArticle(id:String): Observable<Article>{
+    return this.http.get<Article>(`${this.url}${id}`, httpOptions);
+  }
+  updateArticle(article: Article): Observable<Article>{
+    return this.http.put<Article>(this.url, article, httpOptions);
+  }
+
+
 }

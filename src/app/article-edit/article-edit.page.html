@@ -1,9 +1,57 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>article-edit</ion-title>
+    <ion-title>articleEdit</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-
+<ion-content *ngIf="!article">
+  <ion-label ion-text-center>
+    <ion-spinner></ion-spinner>
+  </ion-label>
 </ion-content>
+
+<ion-content *ngIf="article">
+
+  <ion-input [(ngModel)]="article._id" name="_id" type="hidden"></ion-input>
+
+  <ion-item>
+    <ion-label>Title</ion-label>
+    <ion-input [(ngModel)]="article.title" name="title" type="title"></ion-input>
+    <div *ngIf="errors.title"> {{ errors.title }} </div>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Description</ion-label>
+    <ion-input [(ngModel)]="article.description" name="description" type="text"></ion-input>
+    <div *ngIf="errors.description"> {{ errors.description }} </div>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Keywords</ion-label>
+    <ion-input [(ngModel)]="article.keywords" name="keywords" type="text"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Body</ion-label>
+    <ion-input [(ngModel)]="article.body" name="body" type="text"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Published</ion-label>
+    <ion-input [(ngModel)]="article.published" name="published" type="date"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Created</ion-label>
+    <ion-input [(ngModel)]="article.created" name="created" type="date"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Modified</ion-label>
+    <ion-input [(ngModel)]="article.modified" name="modified" type="date"></ion-input>
+  </ion-item>
+
+
+  <ion-button color="primary" expand="full" (click)="onSubmit()">Submit</ion-button>
+</ion-content>
+
