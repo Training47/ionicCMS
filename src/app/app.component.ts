@@ -9,7 +9,8 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
   templateUrl: 'app.component.html',
   styleUrls: ['app.component.scss']
 })
-export class AppComponent implements OnInit {
+
+export class AppComponent {
   public selectedIndex = 0;
   public appPages = [
     {
@@ -33,14 +34,14 @@ export class AppComponent implements OnInit {
       icon: 'people'
     },
     {
-      title: 'Article',
-      url: '/article',
-      icon: 'newitem-add'
+      title: 'Articles',
+      url: '/articles',
+      icon: 'newspaper'
     }
 
   ];
 
-  public labels = ['Login', 'Logout', 'Register', 'User', 'Users', 'Article'];
+  public labels = ['Login', 'Logout', 'Register', 'User', 'Users', 'Article', 'Articles'];
 
   constructor(
     private platform: Platform,
@@ -56,11 +57,15 @@ export class AppComponent implements OnInit {
       this.splashScreen.hide();
     });
   }
-
-  ngOnInit() {
-    const path = window.location.pathname.split('folder/')[1];
-    if (path !== undefined) {
-      this.selectedIndex = this.appPages.findIndex(page => page.title.toLowerCase() === path.toLowerCase());
-    }
-  }
 }
+
+
+
+
+//   ngOnInit() {
+//     const path = window.location.pathname.split('folder/')[1];
+//     if (path !== undefined) {
+//       this.selectedIndex = this.appPages.findIndex(page => page.title.toLowerCase() === path.toLowerCase());
+//     }
+//   }
+// }

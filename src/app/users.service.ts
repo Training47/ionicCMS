@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders} from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { User } from './user.model';
-import { Article } from './article.model';
+
 
 
 
@@ -30,7 +30,7 @@ export class UsersService {
     }
 
     this.url = `${l.protocol}//${host}/api/users/`;
-    this.url = `${l.protocol}//${host}/api/article/`;
+    
   }
 
   createUser(user: User): Observable<User>{
@@ -53,7 +53,4 @@ export class UsersService {
     return this.http.delete<User>(this.url + id);
   }
 
-  getArticle(id:String): Observable<Article>{
-    return this.http.get<Article>(`${this.url}${id}`, httpOptions);
-  }
 } 
