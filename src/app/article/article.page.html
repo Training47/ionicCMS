@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>article</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+  <ion-content>
+    <ion-item *ngIf="!articles">
+      <ion-label ion-text-center>
+        <ion-spinner></ion-spinner>
+      </ion-label>
+    </ion-item>
+  
+  
+    <ion-list *ngIf="articles">
+      <ion-item *ngFor="let article of articles" [routerLink]="['/article', article._id]">
+        <ion-label>{{ article.title }}</ion-label>
+      </ion-item>
+    </ion-list>
+  
+  </ion-content> 
+
+

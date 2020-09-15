@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders} from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { User } from './user.model';
+import { Article } from './article.model';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json'})
@@ -41,4 +42,5 @@ export class AuthService {
  logOut(): Observable<User>{
    return this.http.delete<User>(this.url + 'logout');
  }
+
 }   

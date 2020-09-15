@@ -39,6 +39,10 @@ const routes: Routes = [
     path: 'user-create',
     loadChildren: () => import('./user-create/user-create.module').then( m => m.UserCreatePageModule)
   },
+  {
+    path: 'article/:articleId',
+    loadChildren: () => import('./article/article.module').then( m => m.ArticlePageModule)
+  },
   
 ];
 
