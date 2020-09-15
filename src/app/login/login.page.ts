@@ -23,8 +23,10 @@ export class LoginPage implements OnInit {
     if(response.success===false){
       this.errorMessage = 'Invalid Credentials';
     }
-
-    console.log(response);
+    
+    if(response.success===true){
+      window.location.href='/#/users';
+    }
   }
 
   public onSubmit():void {
