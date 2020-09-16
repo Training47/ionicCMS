@@ -34,7 +34,7 @@ export class ArticlesService {
   }
 
   getArticle(id:String): Observable<Article>{
-    return this.http.get<Article>(`${this.url}${id}`, httpOptions);
+    return this.http.get<Article>(`${this.url}/${id}`, httpOptions);
   }
   
   updateArticle(article: Article): Observable<Article>{
@@ -42,7 +42,7 @@ export class ArticlesService {
   }
 
   deleteArticle(id:String): Observable<Article> {
-    return this.http.put<Article>( `${this.url}${id}`, httpOptions);
+    return this.http.put<Article>( `${this.url}/${id}`, httpOptions);
   }
 
   createArticle(article: Article): Observable<Article> {

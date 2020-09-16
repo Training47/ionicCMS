@@ -29,8 +29,7 @@ ngOnInit() {
 getArticles():void {
   this.articlesService.getArticles().subscribe(
     (response:any)=>{
-      console.log(response);
-      this.articles = response.article;
+    this.articles = response.article;
     }
   );
 
