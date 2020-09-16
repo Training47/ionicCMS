@@ -51,6 +51,10 @@ const routes: Routes = [
     path: 'articles',
     loadChildren: () => import('./articles/articles.module').then( m => m.ArticlesPageModule)
   },
+  {
+    path: 'article-create',
+    loadChildren: () => import('./article-create/article-create.module').then( m => m.ArticleCreatePageModule)
+  },
   
 ];
 

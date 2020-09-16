@@ -5,14 +5,15 @@ import { ArticlesService } from '../articles.service';
 import { Article } from '../article.model'; 
 
 @Component({
-  selector: 'app-article-edit',
-  templateUrl: './article-edit.page.html',
-  styleUrls: ['./article-edit.page.scss'],
+  selector: 'app-article-create',
+  templateUrl: './article-create.page.html',
+  styleUrls: ['./article-create.page.scss'],
 })
-export class ArticleEditPage implements OnInit {
+export class ArticleCreatePage implements OnInit {
 
-  article: Article;
+  article: Article = new Article();
   errors: any = {};
+  errorMessage: string;
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -20,25 +21,21 @@ export class ArticleEditPage implements OnInit {
     private router: Router
   ) { }
 
-  ngOnInit() {
-    this.activatedRoute.params.subscribe(params=>{
-      this.getArticle(params['articleId']);
-    });
-  }
+  ngOnInit() { }
 
   response(response): void{
 
     if(response.success===false){
 
       if( response.errors.name == 'MissingArticletitleError' ){
-        this.errors.articlename = 'Please enter a title';
+        this.errors.title = 'Please enter a title';
       }
 
       if( response.errors.name == 'ArticleExistsError' ){
-        this.errors.description = 'A article with the given description is already registered';
+        this.errors.description = 'A article with the given description is already article-created';
       }
 
-      if( response.errors.name == 'MissingBodyError' ){
+      if( response.errors.name == 'MissingBodyError'){
         this.errors.keywords = 'Please enter keywords';
       }
 
@@ -50,19 +47,12 @@ export class ArticleEditPage implements OnInit {
   }
 
   onSubmit(): void{
-    this.articlesService.updateArticle(this.article).subscribe(
+    this.articlesService.createArticle(this.article).subscribe(
       (response:any) => {
         this.response(response);
       }
     );
   }
-
-  getArticle(id:string):void {
-    this.articlesService.getArticle(id).subscribe(
-      (response:any)=>{
-        this.article = response.article;
-      }
-    );
-  }
 }
+  
 

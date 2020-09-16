@@ -45,5 +45,8 @@ export class ArticlesService {
     return this.http.put<Article>( `${this.url}${id}`, httpOptions);
   }
 
+  createArticle(article: Article): Observable<Article> {
+  return this.http.put<Article>(this.url, article, httpOptions);
+}
 
 }
