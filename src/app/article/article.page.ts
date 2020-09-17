@@ -34,6 +34,17 @@ public getArticle(id:string):void {
   );
 
 }
+deleteArticle(id:string): void {
+  if (confirm("Are you sure to delete " + this.article.title)) {
+    this.articlesService.deleteArticle(id).subscribe(
+      () => { this.router.navigate(['/articles']) }
+    );
+  }
+}
+
 
 }
+
+
+
 
