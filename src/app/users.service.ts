@@ -33,10 +33,6 @@ export class UsersService {
     
   }
 
-  createUser(user: User): Observable<User>{
-    return this.http.post<User>(this.url, user, httpOptions);
-  }
-
   getUsers(): Observable<User>{
     return this.http.get<User>(this.url, httpOptions);
   }
@@ -51,6 +47,10 @@ export class UsersService {
 
   deleteUser(id: string): Observable<User>{
     return this.http.delete<User>(this.url + id);
+  }
+
+  createUser(user: User): Observable<User>{
+    return this.http.post<User>(this.url, user, httpOptions);
   }
 
 } 

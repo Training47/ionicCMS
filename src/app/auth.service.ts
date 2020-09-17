@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { User } from './user.model';
 
 
+
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json'})
 };
@@ -43,4 +44,4 @@ export class AuthService {
    return this.http.delete<User>(this.url + 'logout');
  }
 
-}   
+ }   

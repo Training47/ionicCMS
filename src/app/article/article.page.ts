@@ -26,24 +26,14 @@ ngOnInit() {
   });
 }
 
-getArticle(id:string):void {
+public getArticle(id:string):void {
   this.articlesService.getArticle(id).subscribe(
     (response:any)=>{
-      console.log(response);
       this.article = response.article;
     }
   );
 
 }
 
-// deleteArticle(id:string): void {
-//   if (confirm("Are you sure to delete " + this.article.title)) {
-//     this.articlesService.deleteArticle(id).subscribe(
-//       () => { this.router.navigate(['/articles']) }
-//     ):
-  }
-// }
-
-// }
-
+}
 

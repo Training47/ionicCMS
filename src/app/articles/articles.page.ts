@@ -10,7 +10,6 @@ import { Article } from '../article.model';
   templateUrl: './articles.page.html',
   styleUrls: ['./articles.page.scss'],
 })
-
 export class ArticlesPage implements OnInit {
 articles:Article;
 
@@ -26,10 +25,10 @@ ngOnInit() {
   });
 }
 
-getArticles():void {
+public getArticles():void {
   this.articlesService.getArticles().subscribe(
     (response:any)=>{
-    this.articles = response.article;
+    this.articles = response.articles;
     }
   );
 
